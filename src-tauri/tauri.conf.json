@@ -12,9 +12,12 @@
   "app": {
     "windows": [
       {
-        "title": "budgethandler",
-        "width": 800,
-        "height": 600
+        "title": "Budget Handler",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 900,
+        "minHeight": 600,
+        "center": true
       }
     ],
     "security": {
@@ -23,13 +26,33 @@
   },
   "bundle": {
     "active": true,
-    "targets": "all",
+    "targets": [
+      "nsis",
+      "msi"
+    ],
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ]
+    ],
+    "windows": {
+      "nsis": {
+        "installMode": "both",
+        "displayLanguageSelector": false,
+        "languages": [
+          "English"
+        ],
+        "startMenuFolder": "Budget Handler"
+      },
+      "certificateThumbprint": null,
+      "digestAlgorithm": null,
+      "timestampUrl": null
+    },
+    "shortDescription": "Hotel Budget Management System",
+    "longDescription": "Budget Handler is a desktop application for managing hotel budgets, tracking income and expenses, and generating financial reports.",
+    "copyright": "Copyright © 2026 Budget Handler",
+    "category": "Finance"
   }
 }

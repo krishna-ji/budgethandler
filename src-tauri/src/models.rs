@@ -10,26 +10,7 @@ pub struct Category {
     pub category_type: String, // "Income" | "Expense"
 }
 
-#[derive(Debug, Clone, Deserialize)]
-pub struct NewCategory {
-    pub name: String,
-    #[serde(rename = "type")]
-    pub category_type: String,
-}
-
 // ── Transaction ─────────────────────────────────────────────────
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Transaction {
-    pub id: i64,
-    pub date: String,
-    #[serde(rename = "type")]
-    pub transaction_type: String, // "Income" | "Expense"
-    pub category_id: i64,
-    pub amount: f64,
-    pub description: String,
-    pub created_at: String,
-}
 
 /// Transaction joined with its category name — used for the Ledger data table.
 #[derive(Debug, Clone, Serialize)]
@@ -43,16 +24,6 @@ pub struct TransactionRow {
     pub amount: f64,
     pub description: String,
     pub created_at: String,
-}
-
-#[derive(Debug, Clone, Deserialize)]
-pub struct NewTransaction {
-    pub date: String,
-    #[serde(rename = "type")]
-    pub transaction_type: String,
-    pub category_id: i64,
-    pub amount: f64,
-    pub description: String,
 }
 
 // ── Budget ──────────────────────────────────────────────────────
@@ -72,14 +43,6 @@ pub struct BudgetRow {
     pub id: Option<i64>,
     pub category_id: i64,
     pub category_name: String,
-    pub planned_amount: f64,
-    pub month: i32,
-    pub year: i32,
-}
-
-#[derive(Debug, Clone, Deserialize)]
-pub struct NewBudget {
-    pub category_id: i64,
     pub planned_amount: f64,
     pub month: i32,
     pub year: i32,
